@@ -2,7 +2,7 @@
 	"name": "tracky",
 	"build": {
 		"dockerfile": "Dockerfile",
-        "context": ".."
+		"context": ".."
 	},
 	"settings": {
 		"python.pythonPath": "/usr/local/bin/python",
@@ -20,6 +20,8 @@
 		"source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached,readonly",
 		"source=projectname-bashhistory,target=/commandhistory,type=volume"
 	],
+	"workspaceFolder": "/code",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/code,type=bind,consistency=cached",
 	"forwardPorts": [
 		8888
 	]

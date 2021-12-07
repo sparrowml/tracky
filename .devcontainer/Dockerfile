@@ -5,3 +5,8 @@ RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhisto
 RUN pip install poetry==1.1.6
 
 WORKDIR /code
+RUN mkdir tracky
+RUN touch tracky/__init__.py
+
+COPY poetry.lock poetry.toml pyproject.toml .
+RUN poetry install
