@@ -18,7 +18,7 @@ class Tracklet:
 
     def add_box(self, box: np.ndarray) -> None:
         """Append a box to the end of the array"""
-        self.boxes = np.concatenate(self.boxes, box.reshape(1, 4))
+        self.boxes = np.concatenate([self.boxes, box.reshape(1, 4)])
 
     @property
     def previous_box(self) -> np.ndarray:

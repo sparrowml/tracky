@@ -59,5 +59,8 @@ class Tracker:
             self.finished_tracklets + self.active_tracklets, key=lambda t: t.start_index
         )
 
-    def to_dict(self, fps: int) -> Dict[str, Any]:
-        return dict(fps=fps, tracklets=[t.to_dict() for t in self.tracklets])
+    def to_dict(self, fps: int, n_decimals: int = 3) -> Dict[str, Any]:
+        return dict(
+            fps=fps,
+            tracklets=[t.to_dict(n_decimals=n_decimals) for t in self.tracklets],
+        )
