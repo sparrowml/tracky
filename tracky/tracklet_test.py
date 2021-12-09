@@ -31,3 +31,10 @@ def test_tracklet_previous_box_is_last_box_added():
 def test_to_dict_can_be_json_serialized():
     tracklet = Tracklet(0, np.random.randn(4))
     json.dumps(tracklet.to_dict(n_decimals=1))
+
+
+def test_len_of_tracklet():
+    tracklet = Tracklet(0, np.random.randn(4))
+    tracklet.add_box(np.zeros(4))
+    tracklet.add_box(np.ones(4))
+    assert len(tracklet) == 3
