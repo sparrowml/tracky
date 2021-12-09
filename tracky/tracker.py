@@ -48,9 +48,12 @@ class Tracker:
         for new_idx in new_indices:
             self.active_tracklets.append(Tracklet(self.frame_index, boxes[new_idx]))
         # "Predict" next frame for comparison
-        self.previous_boxes = np.stack(
-            [tracklet.previous_box for tracklet in self.active_tracklets]
-        )
+        if len(self.active_tracklets):
+            self.previous_boxes = np.stack(
+                [tracklet.previous_box for tracklet in self.active_tracklets]
+            )
+        else:
+            self.previous_boxes = np.array([])
         self.frame_index += 1
 
     @property
