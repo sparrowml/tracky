@@ -3,8 +3,10 @@ from scipy.optimize import linear_sum_assignment
 
 
 class MODA:
+    """An addable metric class to track the components of MODA"""
+
     def __init__(
-        self, false_negatives: int, false_positives: int, n_truth: int
+        self, false_negatives: int = 0, false_positives: int = 0, n_truth: int = 0
     ) -> None:
         self.false_negatives = false_negatives
         self.false_positives = false_positives
@@ -30,6 +32,11 @@ def compute_moda(
     ground_truth_boxes: np.ndarray,
     iou_threshold: float = 0.5,
 ) -> MODA:
+    """
+    Compute MODA for a 2D array of predicted boxes
+    and a 2D array of ground truth boxes. Don't match
+    boxes with lower IoU than the threshold.
+    """
     if len(predicted_boxes) == 0:
         n = len(ground_truth_boxes)
         return MODA(false_negatives=n, false_positives=0, n_truth=n)
