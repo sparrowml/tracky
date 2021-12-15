@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tracky"
-version = "0.1.2"
+version = "0.2.1"
 description = "A minimal object tracking package"
 authors = ["jbencook <ben@sparrow.dev>"]
 license = "MIT"
