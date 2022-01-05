@@ -8,5 +8,5 @@ WORKDIR /code
 RUN mkdir tracky
 RUN touch tracky/__init__.py
 
-COPY poetry.lock poetry.toml pyproject.toml .
+COPY poetry.* pyproject.toml /code/
 RUN poetry install
